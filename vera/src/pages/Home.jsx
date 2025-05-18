@@ -27,7 +27,7 @@ function Home() {
           mail: "info@example.com",
         }}
         rightLinks={{
-          whatsapp: "https://wa.me/905xxxxxxxxx",
+          whatsapp: "https://wa.me/905393412716",
         }}
       />
     </div>

@@ -27,5 +27,8 @@
   "features": "Özellikler",
   "product_loading": "Ürünler yükleniyor...",
   "no_products_found": "Bu kategoriye ait ürün bulunamadı.",
-  "quick_view": "HIZLI GÖRÜNÜM"
+  "quick_view": "HIZLI GÖRÜNÜM",
+  "search_product": "Ürün ara...",
+  "not_found_title": "Üzgünüz, bu sayfa bulunamadı.",
+  "not_found_description": "Bu konumda hiçbir şey bulunamamış gibi görünüyor. Belki bağlantılardan arama yapmayı deneyebilirsiniz?"
 }

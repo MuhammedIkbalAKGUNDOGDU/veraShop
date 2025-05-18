@@ -6,13 +6,16 @@ import Footer from "../components/footer";
 const Contact = () => {
   return (
     <div>
-      <Header textcolor="black" />
+      <div className="w-full  max-w-7xl mx-auto">
+        {" "}
+        <Header textcolor="black" />
+      </div>
       <ContactSection />
       <FloatingIcons
         rightLinks={{
-          whatsapp: "https://wa.me/905xxxxxxxxx",
+          whatsapp: "https://wa.me/905393412716",
         }}
-      />{" "}
+      />
       <Footer />
     </div>
   );

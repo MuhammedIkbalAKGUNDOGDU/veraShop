@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/footer";
 import { FaWhatsapp } from "react-icons/fa";
 import RelatedProducts from "../components/RelatedProducts";
-
+import FloatingIcons from "../components/FloatingIcons";
 export default function ProductDetail() {
   const { id } = useParams();
   const { state } = useLocation();
@@ -128,16 +128,6 @@ export default function ProductDetail() {
                 </li>
               ))}
           </ul>
-
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-full text-sm font-semibold shadow-md transition duration-300"
-          >
-            <FaWhatsapp size={18} />
-            {t("contact_us")}
-          </a>
         </div>
       </div>
 
@@ -145,7 +135,11 @@ export default function ProductDetail() {
         currentProductId={product.id}
         category={product.category}
       />
-
+      <FloatingIcons
+        rightLinks={{
+          whatsapp: "https://wa.me/905393412716",
+        }}
+      />
       <Footer
         instagramLink="https://instagram.com/otolofficial"
         emailLink="mailto:iletisim@otol.com"

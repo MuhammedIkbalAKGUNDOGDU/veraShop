@@ -7,6 +7,8 @@ import LazyItemCard from "../components/LazyItemCard";
 import Header from "../components/Header";
 import { ArrowUp } from "lucide-react";
 import { t } from "i18next";
+import FloatingIcons from "../components/FloatingIcons";
+import Footer from "../components/footer";
 
 export default function ProductCategory() {
   const { i18n } = useTranslation();
@@ -71,7 +73,11 @@ export default function ProductCategory() {
     <div>
       <div className="max-w-7xl mx-auto px-4 py-10">
         <Header page="products" textcolor="text-black" />
-
+        <FloatingIcons
+          rightLinks={{
+            whatsapp: "https://wa.me/905393412716",
+          }}
+        />
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
@@ -93,7 +99,7 @@ export default function ProductCategory() {
           </div>
         )}
       </div>
-
+      <Footer></Footer>
       {showButton && (
         <button
           onClick={scrollToTop}

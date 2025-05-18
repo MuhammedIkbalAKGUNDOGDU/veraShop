@@ -7,6 +7,8 @@ import arFlag from "../assets/flags/ar.webp";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logovera.png";
+import ProductSearch from "./ProductsSearch"; // yolunu projene göre düzelt
+
 const languages = [
   { code: "tr", label: "Türkçe", flag: trFlag },
   { code: "en", label: "English", flag: enFlag },
@@ -17,6 +19,7 @@ export default function Header({
   textcolor = "text-white",
   page = "",
   isabsolute = "",
+  isSearchable = true,
 }) {
   const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -215,6 +218,7 @@ export default function Header({
               {t("contact")}
             </a>
           </nav>
+          {isSearchable && <ProductSearch color={textcolor} />}
 
           {/* Desktop: Language */}
           <div className="hidden md:block relative  " ref={langRefDesktop}>
@@ -230,7 +234,7 @@ export default function Header({
               <span className="text-sm">{currentLang.label}</span>
             </button>
             {langMenuOpen && (
-              <div className="absolute mt-2 right-0 bg-gray-600 text-black shadow rounded w-32 z-50">
+              <div className="absolute mt-2 right-0 bg-white opacity-60  text-black shadow rounded w-32 z-50">
                 {languages.map((l) => (
                   <button
                     key={l.code}
@@ -251,6 +255,8 @@ export default function Header({
 
           {/* Mobile: Hamburger + Lang */}
           <div className="md:hidden flex items-center gap-3">
+            {isSearchable && <ProductSearch color={textcolor} />}
+
             <div className="relative" ref={langRefMobile}>
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -264,7 +270,7 @@ export default function Header({
                 <span className="text-sm">{currentLang.label}</span>
               </button>
               {langMenuOpen && (
-                <div className="absolute mt-2 right-0 bg-gray-800 bg-opacity backdrop-blur-md text-black shadow rounded w-32 z-50">
+                <div className="absolute mt-2 right-0 bg-white opacity-60  text-black shadow rounded w-32 z-50">
                   {languages.map((l) => (
                     <button
                       key={l.code}

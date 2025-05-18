@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import LazyItemCard from "../components/LazyItemCard";
 import Header from "../components/Header";
 import { ArrowUp } from "lucide-react";
+import FloatingIcons from "../components/FloatingIcons";
+import Footer from "../components/footer";
 
 export default function Products() {
   const { i18n } = useTranslation();
@@ -57,8 +59,12 @@ export default function Products() {
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 py-10">
-        <Header page="products" textcolor="text-black" />
-
+        <Header page="products" textcolor="text-black" isSearchable={true} />
+        <FloatingIcons
+          rightLinks={{
+            whatsapp: "https://wa.me/905393412716",
+          }}
+        />
         {/* 🔄 Loading ekranı */}
         {loading ? (
           <div className="flex justify-center items-center h-64">
@@ -79,6 +85,7 @@ export default function Products() {
           </div>
         )}
       </div>
+      <Footer></Footer>
 
       {showButton && (
         <button

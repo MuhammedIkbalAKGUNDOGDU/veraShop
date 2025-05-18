@@ -2,8 +2,9 @@ import React from "react";
 import { Mail, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export default function Footer({ instagramLink, emailLink }) {
+export default function Footer({}) {
   const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="w-full text-black px-6 py-4 mt-10">
@@ -11,7 +12,7 @@ export default function Footer({ instagramLink, emailLink }) {
         {/* Sol: Sosyal ikonlar */}
         <div className="flex items-center gap-4">
           <a
-            href={instagramLink}
+            href={""}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-500 transition cursor-pointer"
@@ -19,7 +20,7 @@ export default function Footer({ instagramLink, emailLink }) {
             <Instagram size={20} />
           </a>
           <a
-            href={emailLink}
+            href={""}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition cursor-pointer"
@@ -30,7 +31,7 @@ export default function Footer({ instagramLink, emailLink }) {
 
         {/* Sağ: Telif */}
         <div className="text-sm text-gray-600 text-center md:text-right">
-          {t("footer_rights")} © 2024{" "}
+          {t("footer_rights")} © {currentYear}{" "}
           <a
             href="https://softiumtechnologies.com/"
             target="_blank"

@@ -27,5 +27,8 @@
   "features": "Features",
   "product_loading": "Loading products...",
   "no_products_found": "No products found for this category.",
-  "quick_view": "QUICK VIEW"
+  "quick_view": "QUICK VIEW",
+  "search_product": "Search product...",
+  "not_found_title": "Sorry, this page couldn't be found.",
+  "not_found_description": "It seems nothing was found at this location. Perhaps try searching through the links?"
 }
