@@ -18,5 +18,10 @@
   "form_email": "Email",
   "form_phone": "Phone",
   "form_message": "Message",
-  "form_submit": "SEND"
+  "form_submit": "SEND",
+  "description": "Description",
+  "contact_us": "Contact Us",
+  "product_details_loading": "Product Details Loading",
+  "features": "Features",
+  "quick_view": "QUICK VIEW"
 }

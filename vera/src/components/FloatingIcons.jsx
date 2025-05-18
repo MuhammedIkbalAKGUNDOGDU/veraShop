@@ -11,12 +11,12 @@ export default function FloatingIcons({ leftLinks = {}, rightLinks = {} }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Instagram className="w-8 h-8 md:w-12 md:h-12 text-white hover:text-pink-400 transition cursor-pointer" />
+            <Instagram className="w-8 h-8 md:w-8 md:h-8 text-white hover:text-pink-400 transition cursor-pointer" />
           </a>
         )}
         {leftLinks.mail && (
           <a href={`mailto:${leftLinks.mail}`}>
-            <Mail className="w-8 h-8 md:w-12 md:h-12 text-white hover:text-blue-300 transition cursor-pointer" />
+            <Mail className="w-8 h-8 md:w-8 md:h-8 text-white hover:text-blue-300 transition cursor-pointer" />
           </a>
         )}
       </div>

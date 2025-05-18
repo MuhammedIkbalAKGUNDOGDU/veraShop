@@ -18,5 +18,10 @@
   "form_email": "البريد الإلكتروني",
   "form_phone": "الهاتف",
   "form_message": "رسالتك",
-  "form_submit": "إرسال"
+  "form_submit": "إرسال",
+  "description": "الوصف",
+  "contact_us": "تواصل معنا",
+  "product_details_loading": "جارٍ تحميل تفاصيل المنتج",
+  "features": "سمات",
+  "quick_view": "نظرة سريعة"
 }

@@ -10,28 +10,33 @@ export default function Products() {
   const { i18n } = useTranslation();
   const lang = i18n.language;
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true); // 🟡 Yükleniyor state
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true); // ⏳ Yükleme başlat
       const snapshot = await getDocs(collection(db, "products"));
       const data = snapshot.docs.map((doc) => {
         const d = doc.data();
         return {
           id: doc.id,
-          title: d.name?.[lang] || "",
-          description: d.description?.[lang] || "",
-          features: d.features?.[lang] || [],
-          category: d.category?.[lang] || "",
+          name: d.name || {},
+          description: d.description || {},
+          features: d.features || {},
+          category: d.category || {},
           price: d.price?.toLocaleString("tr-TR", {
             style: "currency",
             currency: "TRY",
           }),
-          image1: d.imageUrls?.[0] || "",
-          image2: d.imageUrls?.[1] || "",
+          imageUrls: d.imageUrls || [],
+          mainCategory: d.mainCategory || "",
+          coverIndex1: d.coverIndex1 ?? null,
+          coverIndex2: d.coverIndex2 ?? null,
         };
       });
       setItems(data);
+      setLoading(false); // ✅ Yükleme tamamlandı
     };
 
     fetchProducts();
@@ -53,11 +58,26 @@ export default function Products() {
     <div>
       <div className="max-w-7xl mx-auto px-4 py-10">
         <Header page="products" textcolor="text-black" />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
-          {items.map((item) => (
-            <LazyItemCard key={item.id} {...item} />
-          ))}
-        </div>
+
+        {/* 🔄 Loading ekranı */}
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
+            <span className="ml-3 text-gray-700 text-sm">
+              Ürünler yükleniyor...
+            </span>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
+            {items.map((item) => (
+              <LazyItemCard
+                key={item.id}
+                {...item}
+                title={item.name?.[lang] || ""}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {showButton && (

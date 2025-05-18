@@ -18,5 +18,10 @@
   "form_email": "E-Posta",
   "form_phone": "Telefon",
   "form_message": "Mesaj",
-  "form_submit": "GÖNDER"
+  "form_submit": "GÖNDER",
+  "description": "Açıklama",
+  "contact_us": "İletişime Geç",
+  "product_details_loading": "Ürün Detayları Yükleniyor",
+  "features": "Özellikler",
+  "quick_view": "HIZLI GÖRÜNÜM"
 }
