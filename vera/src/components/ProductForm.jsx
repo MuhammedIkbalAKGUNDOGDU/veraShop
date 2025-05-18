@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { uploadProduct } from "../services/productService";
-import { CheckCircle, XCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { CheckCircle, XCircle, ChevronDown, ChevronUp, ImagePlus } from "lucide-react";
 import imageCompression from "browser-image-compression";
 
 const CATEGORY_OPTIONS = [
@@ -224,22 +224,32 @@ export default function ProductForm() {
           </div>
 
           <div>
-            <label className="block font-semibold">
+            <label className="block font-semibold mb-2">
               Ürün Görselleri (maks. 6)
             </label>
-            <input
-              type="file"
-              multiple
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-            <div className="flex flex-wrap gap-2 mt-2">
+
+            <label className="inline-flex items-center gap-2 px-3 py-2 border border-gray-300 rounded shadow-sm bg-white hover:bg-gray-50 transition cursor-pointer">
+              <ImagePlus size={18} className="text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">
+                Görsel Seç
+              </span>
+              <input
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={handleImageChange}
+                className="hidden"
+              />
+            </label>
+
+            {/* Seçilen görsellerin ön izlemesi */}
+            <div className="flex flex-wrap gap-2 mt-3">
               {images.map((img, i) => (
                 <img
                   key={i}
                   src={URL.createObjectURL(img)}
                   alt=""
-                  className="w-20 h-20 object-cover rounded"
+                  className="w-20 h-20 object-cover rounded border"
                 />
               ))}
             </div>
@@ -247,7 +257,7 @@ export default function ProductForm() {
 
           <button
             onClick={handleSubmit}
-            className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full"
+            className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full cursor-pointer"
           >
             Ürünü Kaydet
           </button>
