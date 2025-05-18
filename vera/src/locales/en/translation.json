@@ -1,0 +1,22 @@
+{
+  "home": "Home",
+  "products": "All Products",
+  "categories": "Categories",
+  "collection": "Collection",
+  "contact": "Contact",
+  "welcome": "Welcome to our website!",
+  "cat_lighting": "LIGHTING",
+  "cat_mirror": "MIRROR",
+  "cat_storage": "STORAGE UNITS",
+  "cat_seating": "SEATING GROUP",
+  "cat_table": "TABLE & COFFEE TABLE",
+  "cat_complementary": "COMPLEMENTARY PRODUCTS",
+  "footer_rights": "All rights reserved.",
+  "contact_info": "CONTACT",
+  "contact_form": "GET IN TOUCH",
+  "form_name": "Your Name",
+  "form_email": "Email",
+  "form_phone": "Phone",
+  "form_message": "Message",
+  "form_submit": "SEND"
+}

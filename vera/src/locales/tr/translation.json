@@ -1,0 +1,22 @@
+{
+  "home": "Anasayfa",
+  "products": "Tüm Ürünler",
+  "categories": "Kategoriler",
+  "collection": "Koleksiyon",
+  "contact": "İletişim",
+  "welcome": "Web sitemize hoş geldiniz!",
+  "cat_lighting": "AYDINLATMA",
+  "cat_mirror": "AYNA",
+  "cat_storage": "SAKLAMA ÜNİTELERİ",
+  "cat_seating": "OTURMA GRUBU",
+  "cat_table": "MASA & SEHPA",
+  "cat_complementary": "TAMAMLAYICI ÜRÜNLER",
+  "footer_rights": "Tüm hakları saklıdır.",
+  "contact_info": "İLETİŞİM",
+  "contact_form": "BİZE ULAŞIN",
+  "form_name": "Adınız",
+  "form_email": "E-Posta",
+  "form_phone": "Telefon",
+  "form_message": "Mesaj",
+  "form_submit": "GÖNDER"
+}
