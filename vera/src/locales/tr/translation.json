@@ -11,6 +11,8 @@
   "cat_seating": "OTURMA GRUBU",
   "cat_table": "MASA & SEHPA",
   "cat_complementary": "TAMAMLAYICI ÜRÜNLER",
+  "cat_gift": "HEDİYE",
+  "cat_painting": "TABLO",
   "footer_rights": "Tüm hakları saklıdır.",
   "contact_info": "İLETİŞİM",
   "contact_form": "BİZE ULAŞIN",
@@ -23,5 +25,7 @@
   "contact_us": "İletişime Geç",
   "product_details_loading": "Ürün Detayları Yükleniyor",
   "features": "Özellikler",
+  "product_loading": "Ürünler yükleniyor...",
+  "no_products_found": "Bu kategoriye ait ürün bulunamadı.",
   "quick_view": "HIZLI GÖRÜNÜM"
 }

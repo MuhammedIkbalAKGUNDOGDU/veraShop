@@ -41,6 +41,11 @@ export default function RelatedProducts({ category = {}, currentProductId }) {
       const localized = filtered.map((item) => ({
         ...item,
         title: item.name?.[lang] || "",
+        price:
+          item.price?.toLocaleString("tr-TR", {
+            style: "currency",
+            currency: "TRY",
+          }) || "",
       }));
 
       setRelatedItems(localized);
@@ -60,10 +65,19 @@ export default function RelatedProducts({ category = {}, currentProductId }) {
           ? "Related Products"
           : "منتجات مشابهة"}
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-        {relatedItems.map((item) => (
-          <LazyItemCard key={item.id} {...item} />
-        ))}
+
+      <div className="overflow-x-auto">
+        <div className="flex gap-4 flex-nowrap scroll-smooth">
+          {relatedItems.map((item, index) => (
+            <div
+              key={item.id}
+              className="min-w-[250px] opacity-0 fade-in-right"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <LazyItemCard {...item} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

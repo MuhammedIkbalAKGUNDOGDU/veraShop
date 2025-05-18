@@ -11,6 +11,8 @@
   "cat_seating": "مجموعة الجلوس",
   "cat_table": "طاولة وطاولة قهوة",
   "cat_complementary": "المنتجات التكميلية",
+  "cat_gift": "هدية",
+  "cat_painting": "لوحة",
   "footer_rights": "جميع الحقوق محفوظة.",
   "contact_info": "تواصل معنا",
   "contact_form": "أرسل رسالة",
@@ -23,5 +25,7 @@
   "contact_us": "تواصل معنا",
   "product_details_loading": "جارٍ تحميل تفاصيل المنتج",
   "features": "سمات",
+  "product_loading": "جاري تحميل المنتجات...",
+  "no_products_found": "لا توجد منتجات في هذه الفئة.",
   "quick_view": "نظرة سريعة"
 }

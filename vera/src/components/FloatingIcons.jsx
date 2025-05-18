@@ -1,4 +1,5 @@
-import { Instagram, Mail, MessageCircle } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function FloatingIcons({ leftLinks = {}, rightLinks = {} }) {
   return (
@@ -29,7 +30,7 @@ export default function FloatingIcons({ leftLinks = {}, rightLinks = {} }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MessageCircle className="w-11 h-11 md:w-16 md:h-16 text-green-500 bg-white rounded-full p-1 shadow hover:scale-105 transition" />
+            <FaWhatsapp className="w-11 h-11 md:w-16 md:h-16 text-green-500 bg-white rounded-full p-1 shadow hover:scale-105 transition" />
           </a>
         )}
       </div>

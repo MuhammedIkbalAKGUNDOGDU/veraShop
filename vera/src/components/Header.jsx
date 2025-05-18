@@ -152,28 +152,58 @@ export default function Header({
                 }`}
               >
                 {" "}
-                <a href="#" className="block px-4 py-1 hover:bg-gray-100">
+                <a
+                  onClick={() => navigate("/ProductCategory/aydinlatma")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_lighting")}
                 </a>
-                <a href="#" className="block px-4 py-1 hover:bg-gray-100">
+                <a
+                  onClick={() => navigate("/ProductCategory/ayna")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_mirror")}
                 </a>
-                <a href="#" className="block px-4 py-1 hover:bg-gray-100">
+                <a
+                  onClick={() => navigate("/ProductCategory/saklama")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_storage")}
                 </a>
-                <a href="#" className="block px-4 py-1 hover:bg-gray-100">
+                <a
+                  onClick={() => navigate("/ProductCategory/oturma")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_seating")}
                 </a>
-                <a href="#" className="block px-4 py-1 hover:bg-gray-100">
+                <a
+                  onClick={() => navigate("/ProductCategory/masa")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_table")}
                 </a>
-                <a href="#" className="block px-4 py-1 hover:bg-gray-100">
+                <a
+                  onClick={() => navigate("/ProductCategory/tamamlayici")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_complementary")}
+                </a>
+                <a
+                  onClick={() => navigate("/ProductCategory/hediye")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
+                  {t("cat_gift")}
+                </a>
+                <a
+                  onClick={() => navigate("/ProductCategory/tablo")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
+                  {t("cat_painting")}
                 </a>
               </div>
             </div>
             <a
-              href="#"
+              onClick={() => navigate("/ProductCategory/koleksiyon")}
               className={`cursor-pointer font-bold text-xl opacity-70 hover:opacity-100 transition-opacity duration-300 ${textcolor}`}
             >
               {t("collection")}
@@ -305,31 +335,63 @@ export default function Header({
               }`}
             >
               <div className="mt-2 flex flex-col text-base gap-2 px-2">
-                <a href="#" onClick={() => setMenuOpen(false)}>
+                <a
+                  onClick={() => navigate("/ProductCategory/aydinlatma")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_lighting")}
                 </a>
-                <a href="#" onClick={() => setMenuOpen(false)}>
+                <a
+                  onClick={() => navigate("/ProductCategory/ayna")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_mirror")}
                 </a>
-                <a href="#" onClick={() => setMenuOpen(false)}>
+                <a
+                  onClick={() => navigate("/ProductCategory/saklama")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_storage")}
                 </a>
-                <a href="#" onClick={() => setMenuOpen(false)}>
+                <a
+                  onClick={() => navigate("/ProductCategory/oturma")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_seating")}
                 </a>
-                <a href="#" onClick={() => setMenuOpen(false)}>
+                <a
+                  onClick={() => navigate("/ProductCategory/masa")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_table")}
                 </a>
-                <a href="#" onClick={() => setMenuOpen(false)}>
+                <a
+                  onClick={() => navigate("/ProductCategory/tamamlayici")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
                   {t("cat_complementary")}
+                </a>
+                <a
+                  onClick={() => navigate("/ProductCategory/hediye")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
+                  {t("cat_gift")}
+                </a>
+                <a
+                  onClick={() => navigate("/ProductCategory/tablo")}
+                  className="block px-4 py-1 hover:bg-gray-100 cursor-pointer"
+                >
+                  {t("cat_painting")}
                 </a>
               </div>
             </div>
           </div>
 
           <a
-            href="#"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              navigate("/ProductCategory/koleksiyon");
+            }}
             className="hover:underline"
           >
             {t("collection")}

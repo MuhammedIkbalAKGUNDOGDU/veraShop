@@ -11,6 +11,8 @@
   "cat_seating": "SEATING GROUP",
   "cat_table": "TABLE & COFFEE TABLE",
   "cat_complementary": "COMPLEMENTARY PRODUCTS",
+  "cat_gift": "GIFT",
+  "cat_painting": "PAINTING",
   "footer_rights": "All rights reserved.",
   "contact_info": "CONTACT",
   "contact_form": "GET IN TOUCH",
@@ -23,5 +25,7 @@
   "contact_us": "Contact Us",
   "product_details_loading": "Product Details Loading",
   "features": "Features",
+  "product_loading": "Loading products...",
+  "no_products_found": "No products found for this category.",
   "quick_view": "QUICK VIEW"
 }

@@ -51,6 +51,14 @@ const CATEGORY_OPTIONS = [
     key: "tablo",
     labels: { tr: "TABLO", en: "PAINTING", ar: "لوحة" },
   },
+  {
+    key: "koleksiyon",
+    labels: {
+      tr: "KOLEKSİYON",
+      en: "COLLECTION",
+      ar: "مجموعة",
+    },
+  },
 ];
 
 const initialLangFields = { tr: "", en: "", ar: "" };

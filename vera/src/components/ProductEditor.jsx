@@ -11,14 +11,78 @@ import imageCompression from "browser-image-compression";
 import { ChevronDown, ChevronUp, ImagePlus } from "lucide-react";
 
 const CATEGORY_OPTIONS = [
-  { key: "aydinlatma", labels: { tr: "AYDINLATMA" } },
-  { key: "tablo", labels: { tr: "TABLO" } },
-  { key: "ayna", labels: { tr: "AYNA" } },
-  { key: "saklama", labels: { tr: "SAKLAMA ÜNİTELERİ" } },
-  { key: "oturma", labels: { tr: "OTURMA GRUBU" } },
-  { key: "masa", labels: { tr: "MASA & SEHPA" } },
-  { key: "tamamlayici", labels: { tr: "TAMAMLAYICI ÜRÜNLER" } },
-  { key: "hediye", labels: { tr: "HEDİYE FİKİRLERİ" } },
+  {
+    key: "aydinlatma",
+    labels: {
+      tr: "AYDINLATMA",
+      en: "LIGHTING",
+      ar: "إضاءة",
+    },
+  },
+  {
+    key: "tablo",
+    labels: {
+      tr: "TABLO",
+      en: "PAINTING",
+      ar: "لوحة",
+    },
+  },
+  {
+    key: "ayna",
+    labels: {
+      tr: "AYNA",
+      en: "MIRROR",
+      ar: "مرآة",
+    },
+  },
+  {
+    key: "saklama",
+    labels: {
+      tr: "SAKLAMA ÜNİTELERİ",
+      en: "STORAGE UNITS",
+      ar: "وحدات التخزين",
+    },
+  },
+  {
+    key: "oturma",
+    labels: {
+      tr: "OTURMA GRUBU",
+      en: "SEATING GROUP",
+      ar: "مجموعة الجلوس",
+    },
+  },
+  {
+    key: "masa",
+    labels: {
+      tr: "MASA & SEHPA",
+      en: "TABLE & COFFEE TABLE",
+      ar: "طاولة و طاولة قهوة",
+    },
+  },
+  {
+    key: "tamamlayici",
+    labels: {
+      tr: "TAMAMLAYICI ÜRÜNLER",
+      en: "COMPLEMENTARY ITEMS",
+      ar: "منتجات مكملة",
+    },
+  },
+  {
+    key: "hediye",
+    labels: {
+      tr: "HEDİYE FİKİRLERİ",
+      en: "GIFT IDEAS",
+      ar: "أفكار هدايا",
+    },
+  },
+  {
+    key: "koleksiyon",
+    labels: {
+      tr: "KOLEKSİYON",
+      en: "COLLECTION",
+      ar: "مجموعة",
+    },
+  },
 ];
 
 const initialLangFields = { tr: "", en: "", ar: "" };
