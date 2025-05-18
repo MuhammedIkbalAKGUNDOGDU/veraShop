@@ -9,6 +9,7 @@ import {
 } from "firebase/storage";
 import imageCompression from "browser-image-compression";
 import { ChevronDown, ChevronUp, ImagePlus } from "lucide-react";
+import { useMemo } from "react"; // en başta import edilmeli
 
 const CATEGORY_OPTIONS = [
   {
@@ -104,6 +105,7 @@ export default function ProductEditor() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -246,6 +248,15 @@ export default function ProductEditor() {
     }
   };
 
+  const filteredProducts = useMemo(() => {
+    const term = searchTerm.toLowerCase();
+    return products.filter((p) =>
+      [p.name?.tr, p.name?.en, p.name?.ar]
+        .filter(Boolean) // boş olanları at
+        .some((name) => name.toLowerCase().includes(term))
+    );
+  }, [products, searchTerm]);
+
   return (
     <div className="border rounded shadow mb-6 p-4 space-y-4 relative">
       <div
@@ -258,6 +269,13 @@ export default function ProductEditor() {
 
       {accordionOpen && (
         <>
+          <input
+            type="text"
+            placeholder="Ürün adı ara..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border p-2 w-full mb-2 rounded"
+          />
           <select
             className="w-full border p-2"
             onChange={(e) => handleSelect(e.target.value)}
@@ -265,7 +283,7 @@ export default function ProductEditor() {
             disabled={loading}
           >
             <option value="">Ürün seçin</option>
-            {products.map((p) => (
+            {filteredProducts.map((p) => (
               <option key={p.id} value={p.id}>
                 {p.name.tr}
               </option>
