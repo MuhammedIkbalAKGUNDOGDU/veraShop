@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import logo from "../assets/logovera.png";
 
 // md altı görseller
-import imgSm1 from "../assets/imgSm1.jpeg";
-import imgSm2 from "../assets/imgSm2.jpeg";
-import imgSm3 from "../assets/imgSm3.jpeg";
+import imgSm1 from "../assets/imgSm1.jpg";
+import imgSm2 from "../assets/imgSm2.jpg";
+import imgSm3 from "../assets/imgSm3.jpg";
 
 // md ve üzeri görseller
-import imgMd1 from "../assets/imgMd1.jpeg";
-import imgMd2 from "../assets/imgMd2.jpeg";
-import imgMd3 from "../assets/imgMd3.jpeg";
-
+import imgMd1 from "../assets/imgMd1.jpg";
+import imgMd2 from "../assets/imgMd2.jpg";
+import imgMd3 from "../assets/imgMd3.jpg";
+  
 const smallImages = [imgSm1, imgSm2, imgSm3];
 const largeImages = [imgMd1, imgMd2, imgMd3];
 

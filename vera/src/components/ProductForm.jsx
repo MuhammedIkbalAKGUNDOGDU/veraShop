@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { uploadProduct } from "../services/productService";
-import { CheckCircle, XCircle, ChevronDown, ChevronUp, ImagePlus } from "lucide-react";
+import {
+  CheckCircle,
+  XCircle,
+  ChevronDown,
+  ChevronUp,
+  ImagePlus,
+} from "lucide-react";
 import imageCompression from "browser-image-compression";
 
 const CATEGORY_OPTIONS = [
@@ -41,6 +47,10 @@ const CATEGORY_OPTIONS = [
     key: "hediye",
     labels: { tr: "HEDİYE FİKİRLERİ", en: "GIFT IDEAS", ar: "أفكار هدايا" },
   },
+  {
+    key: "tablo",
+    labels: { tr: "TABLO", en: "PAINTING", ar: "لوحة" },
+  },
 ];
 
 const initialLangFields = { tr: "", en: "", ar: "" };
@@ -57,6 +67,9 @@ export default function ProductForm() {
   });
   const [images, setImages] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [mainCategory, setMainCategory] = useState("");
+  const [cover1, setCover1] = useState(null);
+  const [cover2, setCover2] = useState(null);
 
   const handleChange = (field, lang, value) => {
     setProduct((prev) => ({
@@ -68,6 +81,8 @@ export default function ProductForm() {
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files).slice(0, 6);
     setImages(files);
+    setCover1(null);
+    setCover2(null);
   };
 
   const compressImages = async (files) => {
@@ -96,6 +111,10 @@ export default function ProductForm() {
       return setMessage({ type: "error", text: "Fiyat girin." });
     if (selectedCategories.length === 0)
       return setMessage({ type: "error", text: "Kategori seçin." });
+    if (!mainCategory)
+      return setMessage({ type: "error", text: "Ana kategori seçin." });
+    if (cover1 === null || cover2 === null)
+      return setMessage({ type: "error", text: "Kapak görsellerini seçin." });
 
     setLoading(true);
     setMessage(null);
@@ -111,12 +130,15 @@ export default function ProductForm() {
         en: selectedLabels.map((l) => l.en).join(", "),
         ar: selectedLabels.map((l) => l.ar).join(", "),
       },
+      mainCategory,
       price: parseFloat(product.price),
       features: {
         tr: product.features.tr.split(",").map((f) => f.trim()),
         en: product.features.en.split(",").map((f) => f.trim()),
         ar: product.features.ar.split(",").map((f) => f.trim()),
       },
+      coverIndex1: cover1,
+      coverIndex2: cover2,
     };
 
     try {
@@ -130,7 +152,10 @@ export default function ProductForm() {
         price: "",
       });
       setImages([]);
+      setCover1(null);
+      setCover2(null);
       setSelectedCategories([]);
+      setMainCategory("");
     } catch (err) {
       setMessage({ type: "error", text: "Ürün eklenemedi: " + err.message });
     } finally {
@@ -167,6 +192,7 @@ export default function ProductForm() {
             </div>
           )}
 
+          {/* Giriş alanları */}
           {["name", "description", "features"].map((field) => (
             <div key={field}>
               <label className="block font-semibold capitalize">{field}</label>
@@ -185,6 +211,7 @@ export default function ProductForm() {
             </div>
           ))}
 
+          {/* Fiyat */}
           <div>
             <label className="block font-semibold">Fiyat (₺)</label>
             <input
@@ -197,6 +224,7 @@ export default function ProductForm() {
             />
           </div>
 
+          {/* Kategoriler */}
           <div>
             <label className="block font-semibold">Kategoriler (çoklu)</label>
             <div className="flex flex-wrap gap-2 mt-2">
@@ -223,6 +251,27 @@ export default function ProductForm() {
             </div>
           </div>
 
+          {/* Ana kategori seçimi */}
+          <div>
+            <label className="block font-semibold">Ana Kategori</label>
+            <select
+              value={mainCategory}
+              onChange={(e) => setMainCategory(e.target.value)}
+              className="border p-2 w-full mt-1"
+            >
+              <option value="">Ana kategori seçin</option>
+              {selectedCategories.map((key) => {
+                const cat = CATEGORY_OPTIONS.find((c) => c.key === key);
+                return (
+                  <option key={key} value={key}>
+                    {cat?.labels.tr}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          {/* Görsel Yükleme */}
           <div>
             <label className="block font-semibold mb-2">
               Ürün Görselleri (maks. 6)
@@ -242,19 +291,41 @@ export default function ProductForm() {
               />
             </label>
 
-            {/* Seçilen görsellerin ön izlemesi */}
             <div className="flex flex-wrap gap-2 mt-3">
               {images.map((img, i) => (
-                <img
-                  key={i}
-                  src={URL.createObjectURL(img)}
-                  alt=""
-                  className="w-20 h-20 object-cover rounded border"
-                />
+                <div key={i} className="relative">
+                  <img
+                    src={URL.createObjectURL(img)}
+                    alt={`img-${i}`}
+                    className="w-20 h-20 object-cover border rounded"
+                  />
+                  <div className="text-xs mt-1 text-center">
+                    <label>
+                      <input
+                        type="radio"
+                        name="cover1"
+                        checked={cover1 === i}
+                        onChange={() => setCover1(i)}
+                      />
+                      <span className="ml-1">Kapak 1</span>
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        type="radio"
+                        name="cover2"
+                        checked={cover2 === i}
+                        onChange={() => setCover2(i)}
+                      />
+                      <span className="ml-1">Kapak 2</span>
+                    </label>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
 
+          {/* Submit */}
           <button
             onClick={handleSubmit}
             className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full cursor-pointer"
