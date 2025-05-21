@@ -5,7 +5,7 @@ import FloatingIcons from "../components/FloatingIcons";
 import Footer from "../components/footer";
 const Contact = () => {
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
       <div className="w-full  max-w-7xl mx-auto">
         {" "}
         <Header textcolor="black" />

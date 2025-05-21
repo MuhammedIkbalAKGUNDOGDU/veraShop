@@ -23,24 +23,27 @@ export default function ProductCategory() {
       setLoading(true);
       const snapshot = await getDocs(collection(db, "products"));
 
-      const data = snapshot.docs.map((doc) => {
-        const d = doc.data();
-        return {
-          id: doc.id,
-          name: d.name || {},
-          description: d.description || {},
-          features: d.features || {},
-          category: d.category || {},
-          price: d.price?.toLocaleString("tr-TR", {
-            style: "currency",
-            currency: "TRY",
-          }),
-          imageUrls: d.imageUrls || [],
-          mainCategory: d.mainCategory || "",
-          coverIndex1: d.coverIndex1 ?? 0,
-          coverIndex2: d.coverIndex2 ?? 1,
-        };
-      });
+      const data = snapshot.docs
+        .map((doc) => {
+          const d = doc.data();
+          return {
+            id: doc.id,
+            name: d.name || {},
+            description: d.description || {},
+            features: d.features || {},
+            category: d.category || {},
+            price: d.price?.toLocaleString("tr-TR", {
+              style: "currency",
+              currency: "TRY",
+            }),
+            imageUrls: d.imageUrls || [],
+            mainCategory: d.mainCategory || "",
+            coverIndex1: d.coverIndex1 ?? 0,
+            coverIndex2: d.coverIndex2 ?? 1,
+            sold: d.sold ?? false,
+          };
+        })
+        .sort((a, b) => (a.sold === b.sold ? 0 : a.sold ? 1 : -1));
 
       const filtered = data.filter((item) => {
         const catText = item.mainCategory || "";
@@ -70,7 +73,7 @@ export default function ProductCategory() {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 py-10">
         <Header page="products" textcolor="text-black" />
         <FloatingIcons

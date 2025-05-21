@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import ProductForm from "../components/ProductForm";
 import ProductDeleter from "../components/ProductDeleter";
 import ProductEditor from "../components/ProductEditor";
+import ProductMarker from "../components/ProductMarker";
 
 const Admin = () => {
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -75,6 +76,7 @@ const Admin = () => {
       <ProductForm />
       <ProductDeleter />
       <ProductEditor />
+      <ProductMarker />
     </div>
   );
 };

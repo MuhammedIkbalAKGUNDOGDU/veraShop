@@ -9,61 +9,36 @@ export default function ContactSection() {
       {/* Üst kısım */}
       <div className="flex flex-col md:flex-row gap-10">
         {/* Sol: Bilgiler */}
-        <div className="w-full md:w-1/2 bg-gray-100 p-6 rounded shadow">
+        <div className="w-full  bg-gray-100 p-6 rounded shadow">
           <h2 className="font-bold text-lg mb-4">{t("contact_info")}</h2>
           <div className="space-y-4 text-gray-700 text-sm">
             <div className="flex items-center gap-3">
-              <Phone size={18} /> <span>+90 216 336 66 26</span>
+              <Phone size={18} />
+              <a
+                href="tel:+905393412716"
+                className="hover:underline hover:text-blue-600 transition"
+              >
+                +90 539 341 27 16
+              </a>
             </div>
             <div className="flex items-center gap-3">
-              <Mail size={18} /> <span>info@ottosuadiye.com</span>
+              <Mail size={18} /> <span>Verarooom@gmail.com</span>
             </div>
-            <div className="flex items-start gap-3">
+            {/* <div className="flex items-start gap-3">
               <MapPin size={18} />
               <span>
                 Suadiye, Bağdat Cad. No:399/8 <br />
                 34740 Kadıköy / İstanbul
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Sağ: Form */}
-        <div className="w-full md:w-1/2">
-          <h2 className="font-bold text-lg mb-4">{t("contact_form")}</h2>
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder={t("form_name")}
-              className="w-full border rounded px-4 py-2 text-sm"
-            />
-            <input
-              type="email"
-              placeholder={t("form_email")}
-              className="w-full border rounded px-4 py-2 text-sm"
-            />
-            <input
-              type="tel"
-              placeholder={t("form_phone")}
-              className="w-full border rounded px-4 py-2 text-sm"
-            />
-            <textarea
-              placeholder={t("form_message")}
-              rows={4}
-              className="w-full border rounded px-4 py-2 text-sm"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition text-sm"
-            >
-              {t("form_submit")}
-            </button>
-          </form>
-        </div>
       </div>
 
       {/* Harita */}
-      <div className="w-full">
+      {/* <div className="w-full">
         <iframe
           title="Otto Suadiye Harita"
           className="w-full h-96 rounded"
@@ -71,7 +46,7 @@ export default function ContactSection() {
           loading="lazy"
           allowFullScreen
         ></iframe>
-      </div>
+      </div> */}
     </div>
   );
 }

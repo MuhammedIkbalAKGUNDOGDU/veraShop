@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import { ArrowUp } from "lucide-react";
 import FloatingIcons from "../components/FloatingIcons";
 import Footer from "../components/footer";
+import { t } from "i18next";
 
 export default function Products() {
   const { i18n } = useTranslation();
@@ -19,24 +20,28 @@ export default function Products() {
     const fetchProducts = async () => {
       setLoading(true); // ⏳ Yükleme başlat
       const snapshot = await getDocs(collection(db, "products"));
-      const data = snapshot.docs.map((doc) => {
-        const d = doc.data();
-        return {
-          id: doc.id,
-          name: d.name || {},
-          description: d.description || {},
-          features: d.features || {},
-          category: d.category || {},
-          price: d.price?.toLocaleString("tr-TR", {
-            style: "currency",
-            currency: "TRY",
-          }),
-          imageUrls: d.imageUrls || [],
-          mainCategory: d.mainCategory || "",
-          coverIndex1: d.coverIndex1 ?? null,
-          coverIndex2: d.coverIndex2 ?? null,
-        };
-      });
+      const data = snapshot.docs
+        .map((doc) => {
+          const d = doc.data();
+          return {
+            id: doc.id,
+            name: d.name || {},
+            description: d.description || {},
+            features: d.features || {},
+            category: d.category || {},
+            price: d.price?.toLocaleString("tr-TR", {
+              style: "currency",
+              currency: "TRY",
+            }),
+            imageUrls: d.imageUrls || [],
+            mainCategory: d.mainCategory || "",
+            coverIndex1: d.coverIndex1 ?? null,
+            coverIndex2: d.coverIndex2 ?? null,
+            sold: d.sold ?? false,
+          };
+        })
+        .sort((a, b) => (a.sold === b.sold ? 0 : a.sold ? 1 : -1));
+
       setItems(data);
       setLoading(false); // ✅ Yükleme tamamlandı
     };
@@ -57,7 +62,7 @@ export default function Products() {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-10">
         <Header page="products" textcolor="text-black" isSearchable={true} />
         <FloatingIcons
@@ -70,7 +75,7 @@ export default function Products() {
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
             <span className="ml-3 text-gray-700 text-sm">
-              Ürünler yükleniyor...
+              {t("product_loading")}
             </span>
           </div>
         ) : (

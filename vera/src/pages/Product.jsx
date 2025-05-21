@@ -57,18 +57,27 @@ export default function ProductDetail() {
   const allCategories = product.category?.[lang]?.split(",") || [];
 
   const whatsappLink = `https://wa.me/905393412716?text=${encodeURIComponent(
-    `Merhaba, ${localizedTitle} adlı ürün hakkında bilgi almak istiyorum.`
+    `Merhaba, ${localizedTitle}, ${
+      product.name["tr"] || ""
+    } adlı ürün hakkında bilgi almak istiyorum.`
   )}`;
 
   return (
-    <>
+    <div className="bg-gray-100">
+      {" "}
       <div className="max-w-6xl mx-auto">
         <Header textcolor="black" />
       </div>
-
-      <div className="max-w-6xl mx-auto p-6 flex flex-col md:flex-row gap-10">
+      <div className=" max-w-6xl mx-auto p-6 flex flex-col md:flex-row gap-10">
         {/* Sol: Görsel alanı */}
-        <div className="w-full md:w-1/2">
+        <div className="relative w-full md:w-1/2">
+          {product.category && (
+            <div className="absolute top-0 right-0 z-20 overflow-hidden w-[75px] h-[75px]">
+              <div className="bg-red-600 text-white text-[10px] font-bold absolute left-[-35px] top-[18px] w-[150px] text-center rotate-[45deg] shadow-md">
+                SOLD
+              </div>
+            </div>
+          )}
           <div
             ref={zoomRef}
             className="overflow-hidden border rounded relative"
@@ -127,10 +136,22 @@ export default function ProductDetail() {
                   {feature}
                 </li>
               ))}
+            {!product.sold && (
+              <li>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer mt-2 px-4 py-4 text-lg w-full text-center bg-green-500 text-white rounded hover:bg-green-600 transition flex items-center justify-center gap-2"
+                >
+                  <FaWhatsapp size={18} />
+                  {t("share_on_whatsapp", "WhatsApp ile Paylaş")}
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
-
       <RelatedProducts
         currentProductId={product.id}
         category={product.category}
@@ -142,8 +163,8 @@ export default function ProductDetail() {
       />
       <Footer
         instagramLink="https://instagram.com/otolofficial"
-        emailLink="mailto:iletisim@otol.com"
+        emailLink="mailto:Verarooom@gmail.com"
       />
-    </>
+    </div>
   );
 }

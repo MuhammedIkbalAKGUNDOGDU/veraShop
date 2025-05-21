@@ -40,6 +40,14 @@ const CATEGORY_OPTIONS = [
     key: "hediye",
     labels: { tr: "HEDİYE FİKİRLERİ", en: "GIFT IDEAS", ar: "أفكار هدايا" },
   },
+  {
+    key: "koleksiyon",
+    labels: {
+      tr: "KOLEKSİYON",
+      en: "COLLECTION",
+      ar: "مجموعة",
+    },
+  },
   { key: "tablo", labels: { tr: "TABLO", en: "PAINTING", ar: "لوحة" } },
 ];
 
@@ -52,8 +60,10 @@ export default function ProductCard(props) {
     imageUrls = [],
     coverIndex1 = 0,
     coverIndex2 = 1,
+    sold = false, // <-- ekle
   } = props;
 
+  console.log(props);
   const { i18n, t } = useTranslation();
   const lang = i18n.language;
   const navigate = useNavigate();
@@ -82,6 +92,13 @@ export default function ProductCard(props) {
     >
       {/* Görsel Alanı */}
       <div className="relative w-full aspect-square overflow-hidden rounded shadow-lg bg-gray-100">
+        {sold && (
+          <div className="absolute top-0 right-0 z-20 overflow-hidden w-[75px] h-[75px]">
+            <div className="bg-red-600 text-white text-[10px] font-bold absolute left-[-35px] top-[18px] w-[150px] text-center rotate-[45deg] shadow-md">
+              SOLD
+            </div>
+          </div>
+        )}
         {/* Loading placeholder */}
         {(!loaded1 || !loaded2) && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-200 z-10">
