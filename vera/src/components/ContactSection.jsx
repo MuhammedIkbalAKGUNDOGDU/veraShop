@@ -22,7 +22,15 @@ export default function ContactSection() {
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <Mail size={18} /> <span>Verarooom@gmail.com</span>
+              <Mail size={20} />
+              <a
+                href="mailto:verarooom@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-500 transition cursor-pointer"
+              >
+                verarooom@gmail.com
+              </a>{" "}
             </div>
             {/* <div className="flex items-start gap-3">
               <MapPin size={18} />

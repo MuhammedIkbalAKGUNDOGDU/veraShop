@@ -20,7 +20,10 @@ const NotFound = () => {
           <p className="text-gray-500 mb-6">{t("not_found_description")}</p>
         </div>
       </div>
-      <Footer />
+      <Footer
+        instagramLink="https://instagram.com/verarooom"
+        emailLink="mailto:verarooom@gmail.com"
+      />{" "}
     </>
   );
 };

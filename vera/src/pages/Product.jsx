@@ -162,8 +162,8 @@ export default function ProductDetail() {
         }}
       />
       <Footer
-        instagramLink="https://instagram.com/otolofficial"
-        emailLink="mailto:Verarooom@gmail.com"
+        instagramLink="https://instagram.com/verarooom"
+        emailLink="mailto:verarooom@gmail.com"
       />
     </div>
   );

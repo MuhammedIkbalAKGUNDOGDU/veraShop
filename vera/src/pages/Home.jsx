@@ -23,8 +23,8 @@ function Home() {
       <AnimatedBackground></AnimatedBackground>
       <FloatingIcons
         leftLinks={{
-          instagram: "https://instagram.com/yourpage",
-          mail: "info@example.com",
+          instagram: "https://www.instagram.com/verarooom",
+          mail: "verarooom@gmail.com",
         }}
         rightLinks={{
           whatsapp: "https://wa.me/905393412716",

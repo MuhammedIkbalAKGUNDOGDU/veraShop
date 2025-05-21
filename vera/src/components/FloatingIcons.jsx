@@ -1,11 +1,19 @@
 import { Instagram, Mail } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaSpotify, FaWhatsapp } from "react-icons/fa";
 
 export default function FloatingIcons({ leftLinks = {}, rightLinks = {} }) {
   return (
     <>
       {/* Sol alt köşe ikonları */}
       <div className="fixed bottom-4 left-4 z-50 flex gap-3">
+        <a
+          href="https://open.spotify.com/user/smokeloversx?si=ZCnIRF7OTMyr2C6yHZW8gw" // ← kendi linkinle değiştir
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-8 h-8  text-white hover:text-green-500 transition cursor-pointer"
+        >
+          <FaSpotify size={30} />
+        </a>
         {leftLinks.instagram && (
           <a
             href={leftLinks.instagram}

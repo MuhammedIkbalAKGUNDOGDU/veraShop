@@ -16,7 +16,10 @@ const Contact = () => {
           whatsapp: "https://wa.me/905393412716",
         }}
       />
-      <Footer />
+      <Footer
+        instagramLink="https://instagram.com/verarooom"
+        emailLink="mailto:verarooom@gmail.com"
+      />{" "}
     </div>
   );
 };

@@ -102,7 +102,10 @@ export default function ProductCategory() {
           </div>
         )}
       </div>
-      <Footer></Footer>
+      <Footer
+        instagramLink="https://instagram.com/verarooom"
+        emailLink="mailto:verarooom@gmail.com"
+      />{" "}
       {showButton && (
         <button
           onClick={scrollToTop}

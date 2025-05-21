@@ -1,6 +1,7 @@
 import React from "react";
 import { Mail, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FaInstagram, FaSpotify } from "react-icons/fa";
 
 export default function Footer({}) {
   const { t } = useTranslation();
@@ -12,15 +13,23 @@ export default function Footer({}) {
         {/* Sol: Sosyal ikonlar */}
         <div className="flex items-center gap-4">
           <a
-            href={""}
+            href="https://open.spotify.com/user/smokeloversx?si=ZCnIRF7OTMyr2C6yHZW8gw" // ← kendi linkinle değiştir
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-green-500 transition cursor-pointer"
+          >
+            <FaSpotify size={20} />
+          </a>
+          <a
+            href="https://www.instagram.com/verarooom"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-500 transition cursor-pointer"
           >
-            <Instagram size={20} />
+            <FaInstagram size={20} />
           </a>
           <a
-            href={""}
+            href="mailto:verarooom@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-500 transition cursor-pointer"
