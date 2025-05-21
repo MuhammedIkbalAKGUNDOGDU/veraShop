@@ -74,7 +74,7 @@ export default function ProductDetail() {
           {product.category && (
             <div className="absolute top-0 right-0 z-20 overflow-hidden w-[75px] h-[75px]">
               <div className="bg-red-600 text-white text-[10px] font-bold absolute left-[-35px] top-[18px] w-[150px] text-center rotate-[45deg] shadow-md">
-                SOLD
+                {t("sold")}
               </div>
             </div>
           )}

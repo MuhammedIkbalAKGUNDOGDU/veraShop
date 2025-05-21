@@ -31,5 +31,6 @@
   "search_product": "Search product...",
   "not_found_title": "Sorry, this page couldn't be found.",
   "not_found_description": "It seems nothing was found at this location. Perhaps try searching through the links?",
-  "share_on_whatsapp": "Get information about the product"
+  "share_on_whatsapp": "Get information about the product",
+  "sold": "SOLD"
 }
