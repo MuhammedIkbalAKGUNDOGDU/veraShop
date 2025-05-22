@@ -170,7 +170,15 @@ export default function ProductForm() {
       setLoading(false);
     }
   };
-
+  const secondField = ({ field }) => {
+    if (field == "name") {
+      return "Ad";
+    } else if (field == "description") {
+      return "Açıklama";
+    } else {
+      return "Özellikler";
+    }
+  };
   return (
     <div className="border relative rounded shadow mb-6">
       <button
@@ -203,7 +211,9 @@ export default function ProductForm() {
           {/* Giriş alanları */}
           {["name", "description", "features"].map((field) => (
             <div key={field}>
-              <label className="block font-semibold capitalize">{field}</label>
+              <label className="block font-semibold capitalize">
+                {field} ({secondField({ field })}){" "}
+              </label>
               <div className="flex flex-col md:flex-row gap-2">
                 {["tr", "en", "ar"].map((lang) => (
                   <input

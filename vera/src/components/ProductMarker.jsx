@@ -39,7 +39,7 @@ export default function ProductMarker() {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center px-4 py-2 font-semibold hover:bg-gray-100"
       >
-        <span>Ürün Düzenle</span>
+        <span>Ürün Satıldı İşaretleme</span>
         {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </button>
 
