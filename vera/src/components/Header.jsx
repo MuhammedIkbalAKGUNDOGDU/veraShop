@@ -255,7 +255,6 @@ export default function Header({
 
           {/* Mobile: Hamburger + Lang */}
           <div className="md:hidden flex items-center gap-3">
-            {isSearchable && <ProductSearch color={textcolor} />}
 
             <div className="relative" ref={langRefMobile}>
               <button
